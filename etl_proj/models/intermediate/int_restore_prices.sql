@@ -4,9 +4,14 @@ WITH clean_types AS (
     SELECT
         transaction_id,
         items,
+        
         TRY_TO_DOUBLE(price_per_unit) AS price_per_unit,
         TRY_TO_DOUBLE(quantities) AS quantities,
-        TRY_TO_DOUBLE(total_spent) AS total_spent
+        TRY_TO_DOUBLE(total_spent) AS total_spent,
+        
+        payment_method,
+        location,
+        transaction_date
     FROM {{ ref('int_restore_items') }}
     WHERE items NOT IN ('UNKNOWN', 'ERROR')
 ),
@@ -43,6 +48,10 @@ restored AS (
             ELSE total_spent
         END AS total_spent,
 
+        payment_method,
+        location,
+        transaction_date,
+
         null_count
     FROM base
 )
@@ -52,6 +61,9 @@ SELECT
     items,
     price_per_unit,
     quantities,
-    total_spent
+    total_spent,
+    payment_method,
+    location,
+    transaction_date
 FROM restored
 WHERE null_count < 2
