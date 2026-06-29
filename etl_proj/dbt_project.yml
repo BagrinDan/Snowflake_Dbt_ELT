@@ -31,8 +31,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   etl_proj:
-    # Config indicated by + and applies to all files under models/example/
-    example:
+    staging:
       +materialized: view
+      +schema: BRONZE
+    intermediate:
+      +materialized: view
+      +schema: SILVER
+    marts:
+      +materialized: table
+      +schema: GOLD
+    
+    
 
       

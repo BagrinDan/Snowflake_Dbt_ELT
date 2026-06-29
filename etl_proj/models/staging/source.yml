@@ -3,6 +3,6 @@ version: 2
 sources:
   - name: bronze
     database: CAFEDB
-    schema: BRONZE
+    schema: ORIGIN
     tables:
       - name: raw_cafe_sales

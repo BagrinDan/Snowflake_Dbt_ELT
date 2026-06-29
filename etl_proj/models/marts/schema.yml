@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: dim_items
+    description: "DIM Items"
+    columns:
+      - name: item_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_location
+    description: "DIM Locations"
+    columns:
+      - name: location_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_payment
+    description: "DIM Payment"
+    columns:
+      - name: payment_method_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_transaction_date
+    description: "DIM Payment"
+    columns:
+      - name: transaction_date_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_transaction
+    description: "FACT Table"
+    columns:
+      - name: transaction_id
+        tests:
+          - not_null
