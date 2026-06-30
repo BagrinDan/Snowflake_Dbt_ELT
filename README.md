@@ -53,7 +53,7 @@ erDiagram
     FACT_TRANSACTION }|--|| DIM_LOCATION : location_key
     FACT_TRANSACTION }|--|| DIM_PAYMENT : payment_key
     FACT_TRANSACTION }|--|| DIM_TRANSACTION_DATE : transaction_date_key
-
+```
 
 
 PowerBI Dashboards:
