@@ -53,7 +53,6 @@ PowerBI Dashboards:
 ![alt text](images/sales_per_day.png)
 
 
-
 How's done:
 Initial data:
 ![alt text](images/init_data.png)
@@ -75,6 +74,5 @@ Location, Payment-method and transaction_date will remain unknown, because is im
 
 
 Medalion arhitecture (Snowflake):
+![alt text](images/snowflake.png)
 
-
-PowerBI dashboard:
