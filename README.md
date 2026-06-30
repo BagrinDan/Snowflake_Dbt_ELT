@@ -1,20 +1,8 @@
 # ETL_SimplePipeline
 
-
 This ETL pipeline uses Snowflake for data storage, dbt for cleaning and transforming data, and Power BI for dashboards.
 
-
-This ETL is based on cafe-store data. 
-We have columns:
-    'TRANSACTION_ID'
-    'ITEMS'
-    'PRICE_PER_UNIT'
-    'QUANTITIES',
-    'TOTAL_SPENT',
-    'PAYMENT_METHOD', 
-    'LOCATION', 
-    'TRANSACTION_DATE' 
-
+This ETL is based on cafe-store data. We have columns: 'TRANSACTION_ID', 'ITEMS', 'PRICE_PER_UNIT', 'QUANTITIES', 'TOTAL_SPENT', 'PAYMENT_METHOD', 'LOCATION', 'TRANSACTION_DATE'.
 
 The star schema:
 
@@ -53,7 +41,7 @@ erDiagram
     }
 
     DIM_TRANSACTION_DATE {
-        date transaction_date_key PK
+        date transaction_date_key FK
         int year
         int quarter
         int month
@@ -61,10 +49,11 @@ erDiagram
         boolean is_weekend
     }
 
-    FACT_TRANSACTION }|--|| DIM_ITEMS : "contains"
-    FACT_TRANSACTION }|--|| DIM_LOCATION : "executed_at"
-    FACT_TRANSACTION }|--|| DIM_PAYMENT : "paid_via"
-    FACT_TRANSACTION }|--|| DIM_TRANSACTION_DATE : "occurs_on"
+    FACT_TRANSACTION }|--|| DIM_ITEMS : item_key
+    FACT_TRANSACTION }|--|| DIM_LOCATION : location_key
+    FACT_TRANSACTION }|--|| DIM_PAYMENT : payment_key
+    FACT_TRANSACTION }|--|| DIM_TRANSACTION_DATE : transaction_date_key
+```
 
 
 PowerBI Dashboards:
