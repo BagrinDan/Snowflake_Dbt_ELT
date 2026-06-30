@@ -6,7 +6,7 @@
 }}
 
 with source as (
-    select * from {{ ref('int_restore_items') }} 
+    select * from {{ ref('int_clean_rest') }} 
 ),
 
 joined as (
@@ -34,7 +34,7 @@ joined as (
         on s.location = dl.location
 
     left join {{ ref('dim_transaction_date') }} dd
-        on s.transaction_date = dd.transaction_date
+        on CAST(s.transaction_date AS VARCHAR) = dd.transaction_date
 )
 
 select * from joined

@@ -1,9 +1,8 @@
-with unique_items as(
+with unique_items as (
     select distinct
-        coalesce(transaction_date, 'UNKNOWN') as transaction_date
-    from {{ ref('int_restore_prices') }}
+        COALESCE(CAST(transaction_date AS VARCHAR), 'UNKNOWN') AS transaction_date
+    from {{ ref('int_clean_rest') }}
 )
-
 select
     md5(transaction_date) as transaction_date_id,
     transaction_date

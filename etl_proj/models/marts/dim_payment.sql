@@ -1,7 +1,7 @@
 with unique_items as(
     select distinct
         coalesce(payment_method, 'UNKNOWN') as payment_method
-    from {{ ref('int_restore_prices')}}
+    from {{ ref('int_clean_rest')}}
 )
 
 select

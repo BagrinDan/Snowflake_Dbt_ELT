@@ -3,15 +3,12 @@
 SELECT
     transaction_id,
     CASE 
-        -- Cheking if name is valid
         WHEN items NOT IN ('UNKNOWN', 'ERROR') then items
 
-        -- If name is not valid, then restore base on unique price
         WHEN price_per_unit = '1.0' then 'Cookie'
         WHEN price_per_unit = '5.0' then 'Salad'
         WHEN price_per_unit = '1.5' then 'Tea'
 
-        -- If name and price are not valid - then null
         ELSE null
     END as items,
 

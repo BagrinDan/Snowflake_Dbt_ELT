@@ -1,7 +1,7 @@
 with unique_items as(
     select distinct
         coalesce(location, 'UNKNOWN') as location
-    from {{ ref('int_restore_prices') }}
+    from {{ ref('int_clean_rest') }}
 )
 
 select 
