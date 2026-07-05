@@ -1,4 +1,4 @@
-# ETL_SimplePipeline
+# CofeSales_ETL
 
 This ETL pipeline uses Snowflake for data storage, dbt for cleaning and transforming data, and Power BI for dashboards.
 
@@ -47,18 +47,24 @@ erDiagram
 
 
 PowerBI Dashboards:
+
+Sales Dashboard:
 ![alt text](images/sales_dashboard.png)
+
+Sales dashboard (Top 2):
 ![alt text](images/sales_dashboard(top2).png)
+
+Takeaway vs in store:
 ![alt text](images/takeaway_vs_store.png)
+
+Sales per day:
 ![alt text](images/sales_per_day.png)
 
 
 How's done:
-Initial data:
-![alt text](images/init_data.png)
+![Initial data:](images/init_data.png)
 
-Data info:
-![alt text](images/data_info.png)
+![Data info](images/data_info.png)
 
 We can restore some data. For example:
 ![alt text](images/item_prices.png)
