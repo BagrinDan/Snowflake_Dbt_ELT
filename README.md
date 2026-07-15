@@ -1,10 +1,8 @@
 # CofeSales_ETL
 
-This ETL pipeline uses Snowflake for data storage, dbt for cleaning and transforming data, and Power BI for dashboards.
+This ETL pipeline processes and analyzes cafe store transactional data. It utilizes **Snowflake** for data warehousing, **dbt (Data Build Tool)** for data transformation and cleaning, and **Power BI** for analytical dashboards.
 
-This ETL is based on cafe-store data. We have columns: 'TRANSACTION_ID', 'ITEMS', 'PRICE_PER_UNIT', 'QUANTITIES', 'TOTAL_SPENT', 'PAYMENT_METHOD', 'LOCATION', 'TRANSACTION_DATE'.
-
-The star schema:
+**The star schema:**
 
 ```mermaid
 erDiagram
@@ -46,27 +44,38 @@ erDiagram
 ```
 
 
-PowerBI Dashboards:
+_**PowerBI Dashboards:**_
 
-Sales Dashboard:
+
+**Sales Dashboard:**
+
 ![alt text](images/sales_dashboard.png)
 
-Sales dashboard (Top 2):
+
+**Sales dashboard (Top 2):**
+
 ![alt text](images/sales_dashboard(top2).png)
 
-Takeaway vs in store:
+
+**Takeaway vs in store:**
+
 ![alt text](images/takeaway_vs_store.png)
 
-Sales per day:
+
+**Sales per day:**
+
 ![alt text](images/sales_per_day.png)
 
 
-How's done:
+**How's done:**
+
 ![Initial data:](images/init_data.png)
 
 ![Data info](images/data_info.png)
 
-We can restore some data. For example:
+
+**We can restore some data. For example:**
+
 ![alt text](images/item_prices.png)
 
 We have some unique prices, like salad and tea. Both have distinct price. We can restore ERROR and UNKNOWN atributes base on that.
@@ -74,11 +83,13 @@ We have some unique prices, like salad and tea. Both have distinct price. We can
 Also we can restore quantities, price_per_unit and total_spent if we have atleast two of them not null.
 
 At the final we have:
+
 ![alt text](images/cleaned_data.png)
 
 Location, Payment-method and transaction_date will remain unknown, because is imposible to restore this kind of data.
 
 
-Medalion arhitecture (Snowflake):
+**Medalion arhitecture (Snowflake):**
+
 ![alt text](images/snowflake.png)
 
